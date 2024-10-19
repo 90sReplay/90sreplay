@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>90sReplay - Input Test</title>
+    <style>
+        html {background-color: rgb(255, 255, 255);}
+        .title {color: rgb(255, 50, 255);}
+        .no {color: rgb(100, 100, 100);}
+        textarea {
+            width: 10000px; 
+            height: 10000px; 
+            text-align: left; 
+            padding: 0; 
+            resize: none; 
+            overflow: auto; 
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<a href="index.html">
+    <img src="..\logo.png" width="205" height="145"></img>
+</a><p>
+
+<button onclick="saveToFile()">Save to Downloads Folder</button>
+<button><a href="notepad.html">Reset</a></button>
+
+<textarea id="myTextarea"></textarea>
+
+<script>
+    function saveToFile() {
+        var text = document.getElementById('myTextarea').value;
+        var blob = new Blob([text], { type: 'text/plain' });
+        var link = document.createElement('a');
+        link.download = 'file.txt';
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
+    }
+</script>
+
+</html>
